@@ -3,6 +3,7 @@ import os
 import openai
 import requests
 import time
+import importlib
 
 promptforqna=['Give me the medical diagnosis, past and present for the patient',
                 'Give me the surgeries that the patient has undergone',
@@ -89,11 +90,11 @@ def searchdocs(prompt):
 
 def summ(prompt,outputofaisearch):
 
-  # openai.api_type = "azure"
-  # openai.api_base = "https://espoc.openai.azure.com/"
-  # openai.api_version = "2023-07-01-preview"
-  # openai.api_key = AI_API_KEY
-  openai.requestssession = None
+  openai.api_type = "azure"
+  openai.api_base = "https://espoc.openai.azure.com/"
+  openai.api_version = "2023-07-01-preview"
+  openai.api_key = AI_API_KEY
+  # openai.requestssession = None
 
   message_text = [{"role":"system","content":prompt},{"role":"user","content":outputofaisearch}]
 
@@ -117,8 +118,9 @@ def integrated(patientkey):
 
     df['Search Prompts']=promptforqna
     df['Prompts to Summarize']=promptforgpt
-
+    
     df['Search Results']=df['Search Prompts'].apply(searchdocs)
-    time.sleep(10)
+    # time.sleep(10)
+    importlib.reload(openai) 
     df['Summary'] = df.apply(lambda row: summ(row['Prompts to Summarize'], row['Search Results']), axis=1)
     return df
