@@ -13,7 +13,7 @@ from integrated_functions import integrated
 def highlight_cells(val):
     return f"height: {100}px"
 #function to display summary
-def text_summary():
+def text_summary(text_input):
     df=integrated(text_input)
     st.dataframe(df)
     st.info("summary will be displayed here!")
@@ -57,7 +57,7 @@ def first():
 
     with tab1:
         if st.button('Generate Summary'):
-            text_summary()
+            text_summary(text_input)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
