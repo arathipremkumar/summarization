@@ -6,26 +6,15 @@ warnings.filterwarnings("ignore")
 from time import sleep
 import random
 @st.cache_data
-def get_static_store() -> Dict:
-    """This dictionary is initialized once and can be used to store the files uploaded"""
-    return {}
 
-def color_low_confidence(val):
-    """
-    Takes a scalar and returns a string with
-    the css property `'background-color: red'` for
-    values that match 'low confidence', and an
-    empty string otherwise.
-    """
-    color = 'red' if val == 'low confidence' else ''
-    return f'background-color: {color}'
+
 
 def highlight_cells(val):
     return f"height: {100}px"
-
+#function to display summary
 def text_summary():
     st.info("summary will be displayed here!")
-
+#function for QnA
 def answer(question):
     if question == 'Medical history':
         st.info("Prints Medical history of the patient")
@@ -44,21 +33,7 @@ def answer(question):
     else:
         st.info("")
 
-
-
-
-
-
-
-
-    # Define the height of each row in pixels
-
-    # Use st.beta_columns to create two columns
-    # Set the height of the rows in the left column using CSS styling
-
-
-
-
+#UI
 
 def first():
 
@@ -92,20 +67,6 @@ def first():
 
     # with st.columns(3)[1]:
     #     st.image(resized_img)
-
-
-
-
-
-    # if st.button('Submit'):
-        # predict(result)
-
-    uploaded_images = []
-    button_states = []
-
-    # Add a file uploader widget to allow the user to upload images
-
-    # If an image is uploaded, load and preprocess it, and add it to the list of uploaded images and button states
 
 first()
 
