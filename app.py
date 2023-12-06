@@ -15,8 +15,9 @@ def highlight_cells(val):
 #function to display summary
 def text_summary(text_input):
     df=integrated(text_input)
-    st.dataframe(df)
-    st.info("summary will be displayed here!")
+    output='\n'.join(df['Summary'].astype(str))
+    st.markdown(output)
+    # st.info("summary will be displayed here!")
 #function for QnA
 def answer(question):
     if question == 'Medical history':
