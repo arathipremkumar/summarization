@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore")
 from time import sleep
 
 
-stqdm.pandas()
+
 st.markdown("""
 
 """, unsafe_allow_html=True)
