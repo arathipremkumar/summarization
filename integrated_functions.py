@@ -3,7 +3,7 @@ import os
 import openai
 import requests
 import time
-import importlib
+
 
 promptforqna=['Give me the medical diagnosis, past and present for the patient',
                 'Give me the surgeries that the patient has undergone',
@@ -99,7 +99,7 @@ def summ(prompt,outputofaisearch):
   message_text = [{"role":"system","content":prompt},{"role":"user","content":outputofaisearch}]
 
   completion = openai.ChatCompletion.create(
-    engine="Summarizer-gpt-35-turbo-16k",
+    engine="Summarizer2",
     messages = message_text,
     temperature=0.7,
     max_tokens=800,
@@ -121,6 +121,6 @@ def integrated(patientkey):
     
     df['Search Results']=df['Search Prompts'].apply(searchdocs)
     # time.sleep(10)
-    importlib.reload(openai) 
+    
     df['Summary'] = df.apply(lambda row: summ(row['Prompts to Summarize'], row['Search Results']), axis=1)
     return df
