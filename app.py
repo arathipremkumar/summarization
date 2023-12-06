@@ -5,6 +5,7 @@ import warnings
 warnings.filterwarnings("ignore")
 from time import sleep
 import random
+from integrated_functions import integrated
 @st.cache_data
 
 
@@ -13,6 +14,8 @@ def highlight_cells(val):
     return f"height: {100}px"
 #function to display summary
 def text_summary():
+    df=integrated(text_input)
+    st.dataframe(df)
     st.info("summary will be displayed here!")
 #function for QnA
 def answer(question):
