@@ -1,22 +1,12 @@
 from typing import Dict
 import streamlit as st
-
 import os
-
-
 import warnings
 warnings.filterwarnings("ignore")
 from time import sleep
-
-
-
-st.markdown("""
-
-""", unsafe_allow_html=True)
-
 import random
 
-pid = []
+
 
 
 
