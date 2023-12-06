@@ -112,7 +112,8 @@ def summ(prompt,outputofaisearch):
 def integrated(patientkey):
 
     df=pd.DataFrame()
-    global patientid=patientkey
+    global patientid
+    patientid=patientkey
 
     df['Search Prompts']=promptforqna
     df['Prompts to Summarize']=promptforgpt
