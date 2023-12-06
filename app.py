@@ -5,16 +5,7 @@ import warnings
 warnings.filterwarnings("ignore")
 from time import sleep
 import random
-
-
-
-
-
 @st.cache_data
-
-
-
-
 def get_static_store() -> Dict:
     """This dictionary is initialized once and can be used to store the files uploaded"""
     return {}
