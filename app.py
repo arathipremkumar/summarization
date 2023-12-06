@@ -15,7 +15,7 @@ def highlight_cells(val):
 #function to display summary
 def text_summary(text_input):
     df=integrated(text_input)
-    for index, value in df['Summary'].iteritems():
+    for value in df['Summary']:
         st.markdown(value)
     # output='\n'.join(df['Summary'].astype(str))
     # st.markdown(output)
