@@ -18,7 +18,7 @@ promptforgpt=['Get all the current and past medical diagnosis from the below ext
                 'Get all the Family history from the below extracts,label it as Family history ',
                 'Get all the Social History fromt the below extracts, label it as Social history']
 
-global patientid
+patientid=""
 
 AI_API_KEY="acee3756d06a4c3993a7c378bb041829"
 SEARCH_API_KEY="ET1LP48KFmyl8yzq6XUWUtmMZ7ojURUy2ZrzLerefsAzSeDiTKfG"
@@ -112,7 +112,7 @@ def summ(prompt,outputofaisearch):
 def integrated(patientkey):
 
     df=pd.DataFrame()
-    patientid=patientkey
+    global patientid=patientkey
 
     df['Search Prompts']=promptforqna
     df['Prompts to Summarize']=promptforgpt
