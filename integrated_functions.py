@@ -2,6 +2,7 @@ import pandas as pd
 import os
 import openai
 import requests
+import time
 
 promptforqna=['Give me the medical diagnosis, past and present for the patient',
                 'Give me the surgeries that the patient has undergone',
@@ -117,5 +118,6 @@ def integrated(patientkey):
     df['Prompts to Summarize']=promptforgpt
 
     df['Search Results']=df['Search Prompts'].apply(searchdocs)
-
+    time.sleep(10)
     df['Summary'] = df.apply(lambda row: summ(row['Prompts to Summarize'], row['Search Results']), axis=1)
+    return df
