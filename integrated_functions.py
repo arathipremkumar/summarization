@@ -12,12 +12,13 @@ promptforqna=['Give me the medical diagnosis, past and present for the patient',
                  'What is family history of this patient',
                  'What is the social history of this patient']
 
-promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical Diagnosis',
+promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical History',
                 'Get all the surgeries from the below extracts, label it as Past Surgical History',
                 'Get all the prescriber or taken medications from the below extracts, label it as Medications',
-                'Get all the allergies of the patient from the below extracts, label it as Allergies',
-                'Get all the Family history from the below extracts,label it as Family history ',
-                'Get all the Social History fromt the below extracts, label it as Social history']
+                'Get all the allergies of the patient from the below extracts, label it as Known Allergies',
+                'Get all the Family history from the below extracts,label it as Family Medical history ',
+                'Get only the specified Social History from the below extracts, label it as Social history. Dont include values having none and not specified. In smoking history, include no.of packs smoked and year of smoking if available']
+
 
 patientid=""
 
