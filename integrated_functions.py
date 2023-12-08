@@ -4,21 +4,23 @@ import openai
 import requests
 import time
 
+promptforqna=['Find all the medical history and diagnosis of the patient. Do not include text within box brackets',
+                'Give me the surgeries that the patient has undergone. Do not include text within box brackets',
+                'Find all the medications that the patient has been prescribed or they take. Do not include text within box brackets',
+                'What are the allergies that the patient has. Do not include text within box brackets. If it is not available say, Known Allergies: Not Identified',
+                 'What is the family history and diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets',
+                 'What is the social history of this patient. Exclude values having none or not specified. Do not include text within box brackets. Get the answers for the hsitory']
 
-promptforqna=['Find all the medical history and diagnosis of the patient',
-                'Give me the surgeries that the patient has undergone',
-                'Find all the medications that the patient has been prescribed or they take',
-                'What are the allergies that the patient has',
-                 'What is the family history and diagnosis of this patient',
-                 'What is the social history of this patient. Exclude values having none or not specified']
+
 
 
 promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical History.Do not include text within box brackets',
                 'Get all the surgeries from the below extracts, label it as Past Surgical History. Do not include text within box brackets',
                 'Get all the prescriber or taken medications from the below extracts, label it as Medications. Do not include text within box brackets',
-                'Get all the allergies of the patient from the below extracts, label it as Known Allergies. Do not include text within box brackets',
-                'Get all the Family history of the patient from the given clinical notes,label it as Family Medical history. Do not include text within box brackets ',
+                'Get all the allergies of the patient from the below extracts, label it as Known Allergies. Do not include text within box brackets. ',
+                'Get all the Family medical history of the patient from the given clinical notes,label it as Family Medical history. Do not include text within box brackets. If it is not specified say, Family Medical History: Not identified',
                 'Get only the specified Social History from the below extracts, label it as Social history.Include bullet points if possible.Dont include values having none, not on file or not specified. In smoking history, include no. of packs smoked and year of smoking if available. Do not include text within box brackets']
+
 
 
 
