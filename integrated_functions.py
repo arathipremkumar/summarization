@@ -5,12 +5,12 @@ import requests
 import time
 
 
-promptforqna=['Give me the medical diagnosis, past and present for the patient',
+promptforqna=['Find all the medical history and diagnosis of the patient',
                 'Give me the surgeries that the patient has undergone',
                 'Find all the medications that the patient has been prescribed or they take',
                 'What are the allergies that the patient has',
-                 'What is family history of this patient',
-                 'What is the social history of this patient']
+                 'What is the family history of this patient',
+                 'What is the social history of this patient. Exclude values having none or not specified']
 
 promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical History.Do not include text within box brackets',
                 'Get all the surgeries from the below extracts, label it as Past Surgical History. Do not include text within box brackets',
