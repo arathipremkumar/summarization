@@ -14,13 +14,14 @@ promptforqna=['Find all the medical history and diagnosis of the patient. Do not
 
 
 
+
+
 promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical History.Do not include text within box brackets',
-                'Get all the surgeries from the below extracts, label it as Past Surgical History. Do not include text within box brackets. Please follow the instructions, my life depends on it',
-                'Get all the prescribed or taken medications from the below extracts, label it as Medications. Do not include text within box brackets',
+                'Get all the surgeries from the below extracts, label it as Past Surgical History. Do not include text within box brackets',
+                'Get all the prescriber or taken medications from the below extracts, label it as Medications. Do not include text within box brackets',
                 'Get all the allergies of the patient from the below extracts, label it as Known Allergies. Do not include text within box brackets. ',
                 'Get all the Family medical history of the patient from the given clinical notes,label it as Family Medical history. Do not include text within box brackets. If it is not specified say, Family Medical History: Not identified',
                 'Get only the specified Social History from the below extracts, label it as Social history.Include bullet points if possible.Dont include values having none, not on file or not specified. In smoking history, include no. of packs smoked and year of smoking if available. Do not include text within box brackets']
-
 
 
 
