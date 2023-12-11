@@ -8,7 +8,7 @@ promptforqna=['Find all the medical history and diagnosis of the patient. Do not
                 'Give me the surgeries that the patient has undergone. Do not include text within box brackets',
                 'Find all the medications that the patient has been prescribed. Do not include text within box brackets. If information not available, say Not identified',
                 'What are the allergies that the patient has. Do not include text within box brackets. Dont include words starting with doc. If it is not available say, Known Allergies: Not Identified',
-                 'What is the family history and diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets',
+                 'What is the family history diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets',
                  'What is the smoking history, drug usgae, alcohol consumption of the patient. Exclude values having none or not specified. Do not include text within box brackets. Get the answers for the hsitory']
 
 
