@@ -6,6 +6,9 @@ warnings.filterwarnings("ignore")
 from time import sleep
 import random
 from integrated_functions import integrated
+from io import BytesIO
+import fitz
+from azure.storage.blob import BlobServiceClient
 @st.cache_data
 
 
@@ -63,15 +66,15 @@ def first():
             text_summary(text_input)
     
     
-        # connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
-        # blob_name = "patient004.pdf"
-        # blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-        # blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
+        connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
+        blob_name = "patient004.pdf"
+        blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+        blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
         
         # Download the PDF file as bytes
-        # pdf_bytes = blob_client.download_blob().content_as_bytes()
-        # if uploaded_file is not None:
-        #     pdfDB = PDFDBStore(pdf_bytes)
+        pdf_bytes = blob_client.download_blob().content_as_bytes()
+        if uploaded_file is not None:
+            pdfDB = PDFDBStore(pdf_bytes)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
