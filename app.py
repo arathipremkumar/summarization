@@ -77,6 +77,7 @@ def first():
         f'<iframe src="data:application/pdf;base64,{pdf_bytes}" '
         'width="800" height="1000" type="application/pdf"></iframe>'
     )
+        st.markdown(pdf_display, unsafe_allow_html=True)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
