@@ -6,8 +6,8 @@ warnings.filterwarnings("ignore")
 from time import sleep
 import random
 from integrated_functions import integrated
-from io import BytesIO
-import fitz
+# from io import BytesIO
+# import fitz
 from azure.storage.blob import BlobServiceClient
 @st.cache_data
 
@@ -73,8 +73,10 @@ def first():
         
         # Download the PDF file as bytes
         pdf_bytes = blob_client.download_blob().content_as_bytes()
-        if uploaded_file is not None:
-            pdfDB = PDFDBStore(pdf_bytes)
+        pdf_display = (
+        f'<iframe src="data:application/pdf;base64,{pdf_bytes}" '
+        'width="800" height="1000" type="application/pdf"></iframe>'
+    )
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
