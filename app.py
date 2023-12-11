@@ -73,7 +73,7 @@ def first():
         blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
         
         # Download the PDF file as bytes
-        pdf_bytes = blob_client.download_blob().content_as_bytes()
+        pdf_bytes = blob_client.download_blob() #.content_as_bytes()
         base64_pdf = base64.b64encode(pdf_bytes.read()).decode('utf-8')
        
         pdf_display = (
