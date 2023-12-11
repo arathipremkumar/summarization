@@ -6,6 +6,7 @@ warnings.filterwarnings("ignore")
 from time import sleep
 import random
 from integrated_functions import integrated
+import base64
 # from io import BytesIO
 # import fitz
 from azure.storage.blob import BlobServiceClient
@@ -73,10 +74,12 @@ def first():
         
         # Download the PDF file as bytes
         pdf_bytes = blob_client.download_blob().content_as_bytes()
+        base64_pdf = base64.b64encode(pdf_bytes.read()).decode('utf-8')
+       
         pdf_display = (
-        f'<iframe src="data:application/pdf;base64,{pdf_bytes}" '
+        f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
         'width="800" height="1000" type="application/pdf"></iframe>'
-    )
+        )
         st.markdown(pdf_display, unsafe_allow_html=True)
     with tab2:
         question = st.selectbox(
