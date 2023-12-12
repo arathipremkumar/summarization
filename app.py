@@ -80,26 +80,20 @@ def first():
         # Download the PDF file as bytes
         pdf_bytes = blob_client.download_blob().content_as_bytes()
         
-        # # st.write(pdf_bytes, format="pdf")
-        # base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-        # file = st.file_uploader("Upload a PDF file", type="pdf")
-
-        # if file is not None:
-        # Read the PDF file
         pdf_bytesio = BytesIO(pdf_bytes)
-        pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
+        # pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
         # Extract the content
-        content = ""
-        for page in range(pdf_reader.getNumPages()):
-            content += pdf_reader.getPage(page).extractText()
-        # Display the content
-        st.write(content)
+        # content = ""
+        # for page in range(pdf_reader.getNumPages()):
+        #     content += pdf_reader.getPage(page).extractText()
+        # # Display the content
+        # st.write(content)
 
-        # pdf_display = (
-        # f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
-        # 'width="800" height="1000" type="application/pdf"></iframe>'
-        # )
-        # st.markdown(pdf_display, unsafe_allow_html=True)
+        pdf_display = (
+        f'<iframe src="data:application/pdf;base64,{pdf_bytesio}" '
+        'width="800" height="1000" type="application/pdf"></iframe>'
+        )
+        st.markdown(pdf_display, unsafe_allow_html=True)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
