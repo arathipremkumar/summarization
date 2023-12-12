@@ -60,7 +60,7 @@ def first():
 
         # st.info('This is a purely informational message')
         if text_input:
-            st.info("Patient Name: John Arnold")
+            st.info("Patient Name: John Doe")
             st.info("DOB: 23-08-1967")
             st.info("Gender: Male")
     tab1, tab2 = st.tabs(["Text Summary", "🗃 QnA"])
