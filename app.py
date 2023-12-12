@@ -9,6 +9,9 @@ from integrated_functions import integrated
 import base64
 # from io import BytesIO
 # import fitz
+import PyPDF2
+
+
 from azure.storage.blob import BlobServiceClient
 @st.cache_data
 
@@ -71,9 +74,7 @@ def first():
         blob_name = "patient004.pdf"
         blob_service_client = BlobServiceClient.from_connection_string(connection_string)
         blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
-        # blob_properties = blob_client.get_blob_properties()
-        # blob_properties.content_settings.content_type = 'application/pdf'
-        # blob_client.set_blob_properties(content_settings=blob_properties.content_settings)
+        
 
         
         # Download the PDF file as bytes
@@ -81,12 +82,22 @@ def first():
         
         # st.write(pdf_bytes, format="pdf")
         base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-       
-        pdf_display = (
-        f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
-        'width="800" height="1000" type="application/pdf"></iframe>'
-        )
-        st.markdown(pdf_display, unsafe_allow_html=True)
+
+      
+        # Read the PDF file
+        pdf_reader = PyPDF2.PdfFileReader(file)
+        # Extract the content
+        content = ""
+        for page in range(pdf_reader.getNumPages()):
+            content += pdf_reader.getPage(page).extractText()
+        # Display the content
+        st.write(content)
+
+        # pdf_display = (
+        # f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
+        # 'width="800" height="1000" type="application/pdf"></iframe>'
+        # )
+        # st.markdown(pdf_display, unsafe_allow_html=True)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
