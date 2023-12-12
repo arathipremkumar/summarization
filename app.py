@@ -7,7 +7,7 @@ from time import sleep
 import random
 from integrated_functions import integrated
 import base64
-# from io import BytesIO
+from io import BytesIO
 # import fitz
 import PyPDF2
 
@@ -86,7 +86,8 @@ def first():
 
         # if file is not None:
         # Read the PDF file
-        pdf_reader = PyPDF2.PdfFileReader(pdf_bytes)
+        pdf_bytesio = BytesIO(pdf_bytes)
+        pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
         # Extract the content
         content = ""
         for page in range(pdf_reader.getNumPages()):
