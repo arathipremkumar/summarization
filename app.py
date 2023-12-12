@@ -5,7 +5,7 @@ import warnings
 warnings.filterwarnings("ignore")
 from time import sleep
 import random
-from integrated_functions import integrated
+# from integrated_functions import integrated
 import base64
 # from io import BytesIO
 # import fitz
@@ -18,9 +18,9 @@ def highlight_cells(val):
     return f"height: {100}px"
 #function to display summary
 def text_summary(text_input):
-    df=integrated(text_input)
-    for value in df['Summary']:
-        st.markdown(value)
+    # df=integrated(text_input)
+    # for value in df['Summary']:
+    #     st.markdown(value)
     # output='\n'.join(df['Summary'].astype(str))
     # st.markdown(output)
     # st.info("summary will be displayed here!")
