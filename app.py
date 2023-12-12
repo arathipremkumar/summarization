@@ -86,7 +86,7 @@ def first():
             
             pdf_bytesio = BytesIO(pdf_bytes)
             pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
-            Extract the content
+            # Extract the content
             content = ""
             for page in range(pdf_reader.getNumPages()):
                 content += pdf_reader.getPage(page).extractText()
