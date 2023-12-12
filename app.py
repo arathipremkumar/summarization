@@ -71,9 +71,9 @@ def first():
         blob_name = "patient004.pdf"
         blob_service_client = BlobServiceClient.from_connection_string(connection_string)
         blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
-        blob_properties = blob_client.get_blob_properties()
-        blob_properties.content_settings.content_type = 'application/pdf'
-        blob_client.set_blob_properties(content_settings=blob_properties.content_settings)
+        # blob_properties = blob_client.get_blob_properties()
+        # blob_properties.content_settings.content_type = 'application/pdf'
+        # blob_client.set_blob_properties(content_settings=blob_properties.content_settings)
 
         
         # Download the PDF file as bytes
