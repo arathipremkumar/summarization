@@ -81,12 +81,12 @@ def first():
         pdf_bytes = blob_client.download_blob().content_as_bytes()
         
         # # st.write(pdf_bytes, format="pdf")
-        base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
+        # base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
         # file = st.file_uploader("Upload a PDF file", type="pdf")
 
         # if file is not None:
         # Read the PDF file
-        pdf_reader = PyPDF2.PdfFileReader(base64_pdf)
+        pdf_reader = PyPDF2.PdfFileReader(pdf_bytes)
         # Extract the content
         content = ""
         for page in range(pdf_reader.getNumPages()):
