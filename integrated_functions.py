@@ -4,24 +4,21 @@ import openai
 import requests
 import time
 
-promptforqna=['Find all the medical history and diagnosis of the patient. Do not include text within box brackets.',
-                'Give me the surgeries that the patient has undergone. Do not include text within box brackets.',
-                'Find all the medications that the patient has been prescribed. If information not available, say Not identified.',
+promptforqna=['Find all the medical history and diagnosis of the patient. Do not include text within box brackets',
+                'Give me the surgeries that the patient has undergone. Do not include text within box brackets',
+                'Find all the medications that the patient has been prescribed. Do not include text within box brackets. If information not available, say Not identified. Do not include text within square brackets.',
                 'What are the allergies that the patient has. Do not include text within box brackets. Dont include words starting with doc. If it is not available say, Known Allergies: Not Identified',
-                 'What is the family history diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets.',
+                 'What is the family history diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets',
                  'What is the smoking history, alcohol consumption of the patient. Exclude values having none or not specified. Do not include text within box brackets. Get the answers for the hsitory']
 
 
 
-
-
-
-promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical History.Do not include text within box brackets.',
-                'Get all the surgeries from the below extracts, label it as Past Surgical History. Do not include text within box brackets. Arrange the surgeries date wise if information available',
-                'Get all the medications that the patient has been prescribed only for a short span of time like few days from the below extracts, label it as Past Medications. And label the rest as Recent Medications.',
+promptforgpt=['Get all the current and past medical diagnosis from the below extracts, label the reponse as Past Medical History.Do not include text within box brackets',
+                'Get all the surgeries from the below extracts, label it as Past Surgical History. Arrange the surgeries date wise if information available. Do not include text within box brackets',
+                'Get all the medications that the patient has been prescribed only for a short span of time like few days from the below extracts, label it as Past Medications. And label the rest as Recent Medications. Do not include text within square brackets.',
                 'Get all the allergies of the patient from the below extracts, label it as Known Allergies. Do not include text within box brackets. Dont include words starting with doc. ',
                 'Get all the Family medical history of the patient from the given clinical notes,label it as Family Medical history. Do not include text within box brackets. If it is not specified say, Family Medical History: Not identified',
-                'Get the smoking history, alcohol consumption  from the below extracts, label it as Social history.Include bullet points if possible.Dont include values having none, not on file or not specified. Do not include text within box brackets.']
+                'Get the smoking history, alcohol consumption  from the below extracts, label it as Social history.Include bullet points if possible.Dont include values having none, not on file or not specified. Do not include text within box brackets']
 
 
 
