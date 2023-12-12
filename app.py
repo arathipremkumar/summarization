@@ -66,34 +66,38 @@ def first():
     tab1, tab2 = st.tabs(["Text Summary", "🗃 QnA"])
 
     with tab1:
-        if st.button('Generate Summary'):
-            text_summary(text_input)
+        col1, col2= st.columns(2)
+        with col1:
+            if st.button('Generate Summary'):
+                text_summary(text_input)
+
+        with col2:
     
     
-        connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
-        blob_name = "patient004.pdf"
-        blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-        blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
-        
-
-        
-        # Download the PDF file as bytes
-        pdf_bytes = blob_client.download_blob().content_as_bytes()
-        
-        pdf_bytesio = BytesIO(pdf_bytes)
-        # pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
-        # Extract the content
-        # content = ""
-        # for page in range(pdf_reader.getNumPages()):
-        #     content += pdf_reader.getPage(page).extractText()
-        # # Display the content
-        # st.write(content)
-
-        pdf_display = (
-        f'<iframe src="data:application/pdf;base64,{pdf_bytesio}" '
-        'width="800" height="1000" type="application/pdf"></iframe>'
-        )
-        st.markdown(pdf_display, unsafe_allow_html=True)
+            connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
+            blob_name = "patient004.pdf"
+            blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+            blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
+            
+    
+            
+            # Download the PDF file as bytes
+            pdf_bytes = blob_client.download_blob().content_as_bytes()
+            
+            pdf_bytesio = BytesIO(pdf_bytes)
+            pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
+            Extract the content
+            content = ""
+            for page in range(pdf_reader.getNumPages()):
+                content += pdf_reader.getPage(page).extractText()
+            # Display the content
+            st.write(content)
+    
+            # pdf_display = (
+            # f'<iframe src="data:application/pdf;base64,{pdf_bytesio}" '
+            # 'width="800" height="1000" type="application/pdf"></iframe>'
+            # )
+            # st.markdown(pdf_display, unsafe_allow_html=True)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
