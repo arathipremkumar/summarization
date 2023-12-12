@@ -73,25 +73,25 @@ def first():
 
         with col2:
     
-    
-            connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
-            blob_name = text_input+".pdf"
-            blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-            blob_client = blob_service_client.get_blob_client(container="fileupload-"+text_input, blob=blob_name)
-            
-    
-            
-            # Download the PDF file as bytes
-            pdf_bytes = blob_client.download_blob().content_as_bytes()
-            
-            pdf_bytesio = BytesIO(pdf_bytes)
-            pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
-            # Extract the content
-            content = ""
-            for page in range(pdf_reader.getNumPages()):
-                content += pdf_reader.getPage(page).extractText()
-            # Display the content
-            st.write(content)
+            if text_input:
+                connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
+                blob_name = text_input+".pdf"
+                blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+                blob_client = blob_service_client.get_blob_client(container="fileupload-"+text_input, blob=blob_name)
+                
+        
+                
+                # Download the PDF file as bytes
+                pdf_bytes = blob_client.download_blob().content_as_bytes()
+                
+                pdf_bytesio = BytesIO(pdf_bytes)
+                pdf_reader = PyPDF2.PdfFileReader(pdf_bytesio)
+                # Extract the content
+                content = ""
+                for page in range(pdf_reader.getNumPages()):
+                    content += pdf_reader.getPage(page).extractText()
+                # Display the content
+                st.write(content)
     
             # pdf_display = (
             # f'<iframe src="data:application/pdf;base64,{pdf_bytesio}" '
