@@ -85,7 +85,7 @@ def first():
 
       
         # Read the PDF file
-        pdf_reader = PyPDF2.PdfFileReader(file)
+        pdf_reader = PyPDF2.PdfFileReader(base64_pdf)
         # Extract the content
         content = ""
         for page in range(pdf_reader.getNumPages()):
