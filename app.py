@@ -75,9 +75,9 @@ def first():
     
     
             connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
-            blob_name = "patient004.pdf"
+            blob_name = text_input+".pdf"
             blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-            blob_client = blob_service_client.get_blob_client(container="fileupload-patient004", blob=blob_name)
+            blob_client = blob_service_client.get_blob_client(container="fileupload-"+text_input, blob=blob_name)
             
     
             
