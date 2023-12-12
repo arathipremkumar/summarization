@@ -22,8 +22,8 @@ def highlight_cells(val):
 #function to display summary
 def text_summary(text_input):
     df=integrated(text_input)
+    st.markdown("<h3 style='text-align: center; color: black;'>Summary</h3>", unsafe_allow_html=True)
     for value in df['Summary']:
-        st.markdown("<h2 style='text-align: center; color: black;'>Summary</h2>", unsafe_allow_html=True)
         st.markdown(value)
     # output='\n'.join(df['Summary'].astype(str))
     # st.markdown(output)
@@ -52,7 +52,7 @@ def answer(question):
 def first():
 
     st.set_page_config(layout="wide")
-    st.markdown("<h3 style='text-align: center; color: green;'> Comprehensive Clinical Notes Summarization</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: green;'> Comprehensive Clinical Notes Summarization</h2>", unsafe_allow_html=True)
 
     st.sidebar.markdown("## Patient Information")
     with st.sidebar:
@@ -94,7 +94,7 @@ def first():
                 for page in range(max(pdf_reader.getNumPages()-5,0),pdf_reader.getNumPages()):
                     content += pdf_reader.getPage(page).extractText()
                 # Display the content
-                st.markdown("<h2 style='text-align: center; color: black;'>Clinical Notes</h2>", unsafe_allow_html=True)
+                st.markdown("<h3 style='text-align: center; color: black;'>Clinical Notes</h3>", unsafe_allow_html=True)
                 st.write(content)
     
             # pdf_display = (
