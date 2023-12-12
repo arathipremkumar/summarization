@@ -50,7 +50,7 @@ def answer(question):
 
 def first():
 
-    st.set_page_config(layout="wide").
+    st.set_page_config(layout="wide")
     st.markdown("<h3 style='text-align: center; color: green;'> Comprehensive Clinical Notes Summarization</h1>", unsafe_allow_html=True)
 
     st.sidebar.markdown("## Patient Information")
