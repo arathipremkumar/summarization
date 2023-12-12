@@ -23,6 +23,7 @@ def highlight_cells(val):
 def text_summary(text_input):
     df=integrated(text_input)
     for value in df['Summary']:
+        st.markdown("<h2 style='text-align: center; color: black;'>Summary</h2>", unsafe_allow_html=True)
         st.markdown(value)
     # output='\n'.join(df['Summary'].astype(str))
     # st.markdown(output)
@@ -75,6 +76,7 @@ def first():
         with col2:
     
             if text_input:
+                
                 connection_string = "DefaultEndpointsProtocol=https;AccountName=storageespoc;AccountKey=j0jDh4ShEGg5EPs3UXWhp+58VEcktkjakoHcjzMae9HKMl4F+FXJVyns1M4QmjpJYmiJpWryoFuT+AStGGKl3g==;EndpointSuffix=core.windows.net"
                 blob_name = text_input+".pdf"
                 blob_service_client = BlobServiceClient.from_connection_string(connection_string)
@@ -92,6 +94,7 @@ def first():
                 for page in range(max(pdf_reader.getNumPages()-5,0),pdf_reader.getNumPages()):
                     content += pdf_reader.getPage(page).extractText()
                 # Display the content
+                st.markdown("<h2 style='text-align: center; color: black;'>Clinical Notes</h2>", unsafe_allow_html=True)
                 st.write(content)
     
             # pdf_display = (
