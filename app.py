@@ -79,14 +79,14 @@ def first():
         # Download the PDF file as bytes
         pdf_bytes = blob_client.download_blob().readall() #.content_as_bytes()
         
-        st.write(pdf_bytes, format="pdf")
-        # base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
+        # st.write(pdf_bytes, format="pdf")
+        base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
        
-        # pdf_display = (
-        # f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
-        # 'width="800" height="1000" type="application/pdf"></iframe>'
-        # )
-        # st.markdown(pdf_display, unsafe_allow_html=True)
+        pdf_display = (
+        f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
+        'width="800" height="1000" type="application/pdf"></iframe>'
+        )
+        st.markdown(pdf_display, unsafe_allow_html=True)
     with tab2:
         question = st.selectbox(
             'What would you like to know about the patient?',
