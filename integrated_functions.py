@@ -4,12 +4,12 @@ import openai
 import requests
 import time
 
-promptforqna=['Find all the medical history and diagnosis of the patient. Do not include text within box brackets like [NAME], [DATE]',
-                'Give me the surgeries that the patient has undergone. Do not include text within box brackets  like [NAME], [DATE]',
+promptforqna=['Find all the medical history and diagnosis of the patient. Do not include text within box brackets.',
+                'Give me the surgeries that the patient has undergone. Do not include text within box brackets.',
                 'Find all the medications that the patient has been prescribed. If information not available, say Not identified.',
-                'What are the allergies that the patient has. Do not include text within box brackets like [NAME], [DATE]. Dont include words starting with doc. If it is not available say, Known Allergies: Not Identified',
-                 'What is the family history diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets like [NAME], [DATE]',
-                 'What is the smoking history, alcohol consumption of the patient. Exclude values having none or not specified. Do not include text within box brackets like [NAME], [DATE]. Get the answers for the hsitory']
+                'What are the allergies that the patient has. Do not include text within box brackets. Dont include words starting with doc. If it is not available say, Known Allergies: Not Identified',
+                 'What is the family history diagnosis of this patient. If it is not specified say, Family Medical History: Not identified. Do not include text within box brackets.',
+                 'What is the smoking history, alcohol consumption of the patient. Exclude values having none or not specified. Do not include text within box brackets. Get the answers for the hsitory']
 
 
 
